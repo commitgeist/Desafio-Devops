@@ -35,7 +35,7 @@ Este repositório apresenta a solução para um desafio DevOps com foco em provi
 ### 1. Clone o projeto
 
 ```bash
-git clone https://github.com/seu-usuario/seu-repo.git
+git clone https://github.com/commitgeist/desafio-devops.git
 cd seu-repo
 ```
 
