@@ -85,4 +85,4 @@ Acesse a aplicação no navegador via:
 
 ## 👨‍💻 Autor
 
-Desenvolvido por [Seu Nome](https://github.com/seu-usuario) como parte de um desafio técnico DevOps.
+Desenvolvido por [Vinicius P]([https://github.com/seu-usuari](https://github.com/commitgeist)o) como parte de um desafio técnico DevOps.
