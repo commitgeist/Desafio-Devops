@@ -1,32 +1,32 @@
-# Desafio DevOps – Deploy Django + PostgreSQL com Docker
+# 🚀 Desafio DevOps – Deploy Django + PostgreSQL com Docker
 
-Este repositório contém a solução para o desafio DevOps, cujo objetivo é provisionar e disponibilizar uma aplicação Django com banco de dados PostgreSQL, utilizando Docker, Docker Compose, NGINX e CI/CD com GitHub Actions.
-
----
-
-##  Tecnologias Utilizadas
-
-- [x] Python + Django
-- [x] PostgreSQL 17
-- [x] Docker e Docker Compose
-- [x] NGINX (Proxy reverso)
-- [x] GitHub Actions (CI)
-- [x] `.env` para variáveis de ambiente
+Este repositório apresenta a solução para um desafio DevOps com foco em provisionamento de uma aplicação Django com banco de dados PostgreSQL, utilizando Docker, Docker Compose, NGINX e CI com GitHub Actions.
 
 ---
 
-## 📦 Estrutura do Projeto
+## 🧰 Tecnologias Utilizadas
 
+- Python + Django
+- PostgreSQL 17
+- Docker e Docker Compose
+- NGINX (proxy reverso)
+- GitHub Actions (CI)
+- `.env` para gerenciamento de variáveis de ambiente
+
+---
+
+## 📁 Estrutura do Projeto
+
+```
 ├── Dockerfile
 ├── docker-compose.yml
 ├── nginx/
-│ └── default.conf
+│   └── default.conf
 ├── .env
 ├── manage.py
 ├── requirements.txt
-└── <código do projeto Django>
-
-
+└── <código da aplicação Django>
+```
 
 ---
 
@@ -39,10 +39,11 @@ git clone https://github.com/seu-usuario/seu-repo.git
 cd seu-repo
 ```
 
-Crie um arquivo .env na raiz com o seguinte conteúdo:
+---
 
-2. Configure o arquivo .env
-```bash
+### 2. Crie um arquivo `.env` na raiz do projeto com o seguinte conteúdo:
+
+```env
 # Variáveis do banco
 DATABASE_ENGINE=django.db.backends.postgresql
 DATABASE_NAME=appdb
@@ -56,11 +57,32 @@ DJANGO_SECRET_KEY=sua-chave-secreta
 DEBUG=True
 DJANGO_LOGLEVEL=info
 DJANGO_ALLOWED_HOSTS=localhost 127.0.0.1
-
 ```
 
-3. Suba os containers
+---
+
+### 3. Suba os containers
 
 ```bash
 docker-compose up --build
 ```
+
+Acesse a aplicação no navegador via:
+
+📍 http://localhost
+
+---
+
+## ✅ Funcionalidades do Projeto
+
+- Django rodando via Gunicorn/DevServer
+- PostgreSQL isolado em container
+- NGINX expondo a aplicação na porta 80
+- CI com GitHub Actions para build e push de imagem Docker
+- Variáveis sensíveis isoladas no `.env`
+
+---
+
+## 👨‍💻 Autor
+
+Desenvolvido por [Seu Nome](https://github.com/seu-usuario) como parte de um desafio técnico DevOps.
