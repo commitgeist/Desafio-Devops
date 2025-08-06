@@ -27,7 +27,3 @@ O foco do desafio é no deploy e boas praticas Devops, logo, recomendamos que fa
 |**Requisitos**| Objetivo | Detalhes |
 |---------------|----------|-------|
 | Req Extra |  Criar um pipeline CD - O principal objetivo é ver como você organiza o arquivo de configuração "deploy.yml", responsável por esse papel | Lembrando que o deploy deverá ser baseado em containers Docker |
-
-
-
-
