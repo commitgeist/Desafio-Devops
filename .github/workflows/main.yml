@@ -1,0 +1,43 @@
+name: CICD
+
+on:
+  push:
+    branches: ["main"]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout código
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: Login no Docker Hub
+        run: |
+          docker login --username ${{ secrets.DOCKERHUB_USER }} --password ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: Build da imagem
+        run: |
+          echo "Building version ${{ github.run_id }}"
+          docker build -t ${{ secrets.DOCKERHUB_REGISTRY }}/${{ github.event.repository.name }}:${{ github.run_id }} .
+
+      - name: Scanner de vulnerabilidades com Trivy
+        uses: aquasecurity/trivy-action@0.11.2
+        with:
+          image-ref: '${{ secrets.DOCKERHUB_REGISTRY }}/${{ github.event.repository.name }}:${{ github.run_id }}'
+          format: 'table'
+          exit-code: '0'
+          ignore-unfixed: true
+          vuln-type: 'os,library'
+          severity: 'CRITICAL,HIGH'
+
+      - name: Push da imagem
+        run: |
+          docker push ${{ secrets.DOCKERHUB_REGISTRY }}/${{ github.event.repository.name }}:${{ github.run_id }}
+          docker tag ${{ secrets.DOCKERHUB_REGISTRY }}/${{ github.event.repository.name }}:${{ github.run_id }} ${{ secrets.DOCKERHUB_REGISTRY }}/${{ github.event.repository.name }}:latest
+          docker push ${{ secrets.DOCKERHUB_REGISTRY }}/${{ github.event.repository.name }}:latest
