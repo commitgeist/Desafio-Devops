@@ -36,7 +36,7 @@ Este repositório apresenta a solução para um desafio DevOps com foco em provi
 
 ```bash
 git clone https://github.com/commitgeist/desafio-devops.git
-cd seu-repo
+cd desafio-devops
 ```
 
 ---
@@ -85,4 +85,4 @@ Acesse a aplicação no navegador via:
 
 ## 👨‍💻 Autor
 
-Desenvolvido por [Vinicius P]([https://github.com/seu-usuari](https://github.com/commitgeist)o) como parte de um desafio técnico DevOps.
+Desenvolvido por [Vinicius P]([https://github.com/commitgeist](https://github.com/commitgeist)) como parte de um desafio técnico DevOps.
